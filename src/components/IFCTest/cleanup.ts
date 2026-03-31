@@ -9,7 +9,6 @@ export interface CleanupRefs {
   camera: OBC.OrthoPerspectiveCamera | null;
   components: OBC.Components | null;
   fragments: OBC.FragmentsManager | null;
-  workerBlobUrl: string | null;
   handles: FragmentCleanupHandles | null;
 }
 
@@ -44,11 +43,5 @@ export function dispose(refs: CleanupRefs): void {
   if (refs.components) {
     refs.components.dispose();
     console.debug("[IFC] cleanup: OBC components disposed");
-  }
-
-  /* 5. Revoke the worker blob URL */
-  if (refs.workerBlobUrl) {
-    URL.revokeObjectURL(refs.workerBlobUrl);
-    console.debug("[IFC] cleanup: worker blob URL revoked");
   }
 }

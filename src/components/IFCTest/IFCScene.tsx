@@ -19,7 +19,6 @@ import { WORKER_URL } from "./constants";
 import { setupRenderer } from "./setupRenderer";
 import { setupCamera } from "./setupCamera";
 import {
-  createWorkerBlobUrl,
   wireThrottledUpdates,
   loadModel,
 } from "./setupFragments";
@@ -59,18 +58,12 @@ export function IFCScene() {
       camera: null,
       components: null,
       fragments: null,
-      workerBlobUrl: null,
       handles: null,
     };
 
     async function init(el: HTMLDivElement) {
       try {
-        /* ---- 1. Worker ---- */
-        console.debug("[IFC] init: fetching worker...");
-        refs.workerBlobUrl = await createWorkerBlobUrl(WORKER_URL);
-        if (disposed) return;
-
-        /* ---- 2. OBC world ---- */
+        /* ---- 1. OBC world ---- */
         console.debug("[IFC] init: creating OBC world...");
         refs.components = new OBC.Components();
 
@@ -114,7 +107,7 @@ export function IFCScene() {
 
         /* ---- 7. FragmentsManager + throttled updates ---- */
         refs.fragments = refs.components.get(OBC.FragmentsManager);
-        refs.fragments.init(refs.workerBlobUrl);
+        refs.fragments.init(WORKER_URL);
         refs.handles = wireThrottledUpdates(world.camera, refs.fragments);
 
         if (disposed) return;

@@ -18,19 +18,6 @@ export interface FragmentCleanupHandles {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Worker helper                                                     */
-/* ------------------------------------------------------------------ */
-
-/** Fetch a remote JS file and return a local blob URL for the worker. */
-export async function createWorkerBlobUrl(url: string): Promise<string> {
-  const response = await fetch(url);
-  if (!response.ok) throw new Error(`Worker fetch failed: ${response.status}`);
-  const blob = await response.blob();
-  const file = new File([blob], "worker.mjs", { type: "text/javascript" });
-  return URL.createObjectURL(file);
-}
-
-/* ------------------------------------------------------------------ */
 /*  Throttled update wiring                                           */
 /* ------------------------------------------------------------------ */
 
