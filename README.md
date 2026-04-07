@@ -27,12 +27,6 @@ ifcLoader.settings.webIfc.COORDINATE_TO_ORIGIN = false;
 
 This preserves the original IFC coordinate system, so the Revit origin maps directly to Three.js `(0,0,0)`.
 
-## What Was NOT the Cause
-
-- The `coordinate` parameter in `ifcLoader.load()` — relates to multi-model coordination, not single-model origin placement
-- `autoCoordinate` in FragmentsModels settings — same purpose, multi-model alignment
-- The IFC file itself — the placement hierarchy was verified to have correct `(0,0,0)` origins throughout
-
 ## Tech Stack
 
 - [Next.js 16](https://nextjs.org/)
