@@ -62,6 +62,22 @@ export default function Home() {
               Open research notes for `@thatopen/components` at `localhost:3000/ifc-test`.
             </p>
           </Link>
+
+          <Link
+            href="/ifc-converter"
+            className="rounded-2xl border border-stone-800 bg-stone-900/70 p-6 transition hover:border-stone-600 hover:bg-stone-900"
+          >
+            <p className="text-sm uppercase tracking-[0.25em] text-stone-500">
+              Scene 04
+            </p>
+            <h2 className="mt-3 text-2xl font-medium text-stone-50">
+              IFC → Fragments Converter
+            </h2>
+            <p className="mt-2 text-sm text-stone-300">
+              Convert .ifc files to .frag in the browser, preview in 3D, and
+              download at `localhost:3000/ifc-converter`.
+            </p>
+          </Link>
         </div>
       </div>
     </main>
