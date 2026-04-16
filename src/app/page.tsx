@@ -78,6 +78,22 @@ export default function Home() {
               download at `localhost:3000/ifc-converter`.
             </p>
           </Link>
+
+          <Link
+            href="/fragment-core-test"
+            className="rounded-2xl border border-stone-800 bg-stone-900/70 p-6 transition hover:border-stone-600 hover:bg-stone-900"
+          >
+            <p className="text-sm uppercase tracking-[0.25em] text-stone-500">
+              Scene 05
+            </p>
+            <h2 className="mt-3 text-2xl font-medium text-stone-50">
+              Fragment Core Test
+            </h2>
+            <p className="mt-2 text-sm text-stone-300">
+              Pure `@thatopen/fragments` runtime baseline at
+              `localhost:3000/fragment-core-test`.
+            </p>
+          </Link>
         </div>
       </div>
     </main>
